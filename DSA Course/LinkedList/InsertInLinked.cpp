@@ -40,50 +40,31 @@ void display(struct Node *p)
             break;
         }
     }
+    cout << endl;
 }
 
-void displayRecursive(struct Node *p)
+void insertat(struct Node *t, int index)
 {
-    cout << p->data << "->";
-    if (p->next != NULL)
+    struct Node *temp = first;
+    for (int i = 1; i < index; i++)
     {
-        displayRecursive(p->next);
+        temp = temp->next;
     }
-}
-
-int count(struct Node *p)
-{
-    if (p->next != 0)
-    {
-        return 1 + count(p->next);
-    }
-    else
-    {
-        return 1;
-    }
-}
-
-int max_ele(struct Node *p)
-{
-    int max = INT32_MIN;
-    while (p) // while address of p != 0/NULL.
-    {
-        if (max < p->data)
-        {
-            max = p->data;
-        }
-        p = p->next;
-    }
-    return max;
+    t->next = temp->next;
+    temp->next = t;
 }
 
 int main()
 {
     int A[] = {5, 10, 20, 40, 80};
     create(A, 5);
-    // display(first);
-    // displayRecursive(first);
-    // cout << "count is " << count(first);
-    cout << "MAX = " << max_ele(first);
+
+    Node *t = new Node;
+    t->data = 1212;
+    t->next = NULL;
+
+    display(first);
+    insertat(t, 1);
+    display(first);
     return 0;
 }
