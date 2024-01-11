@@ -54,17 +54,66 @@ void insertat(struct Node *t, int index)
     temp->next = t;
 }
 
+void deleteat(int index)
+{
+    // Deleting first node;
+    if (index == 0)
+    {
+        struct Node *p = first;
+        first = first->next;
+        delete p;
+    }
+    // Deleting any other node
+    else
+    {
+        struct Node *q = first;
+        struct Node *d = first;
+        for (int i = 0; i < index; i++)
+        {
+            d = d->next;
+        }
+        for (int i = 0; i < index - 1; i++)
+        {
+            q = q->next;
+        }
+        q->next = d->next;
+        delete d;
+    }
+}
+
+void remove_duplicate(struct Node *p)
+{
+    struct Node *t = p;
+    p = p->next;
+    while (p != NULL)
+    {
+        if (t->data == p->data)
+        {
+            t->next = p->next;
+            delete p;
+            p = t->next;
+        }
+        else
+        {
+            t = t->next;
+            p = p->next;
+        }
+    }
+}
+
 int main()
 {
-    int A[] = {5, 10, 20, 40, 80};
-    create(A, 5);
+    int A[] = {5, 10, 20, 20, 40, 80};
+    create(A, 6);
 
     Node *t = new Node;
     t->data = 1212;
     t->next = NULL;
 
     display(first);
-    insertat(t, 1);
+    // insertat(t, 1);
+    // deleteat(1);
+    remove_duplicate(first);
     display(first);
     return 0;
 }
