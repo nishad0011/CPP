@@ -27,6 +27,8 @@ void insert(int element, int row, int col)
         A[row]->column = col;
 
         struct Node *temp = new struct Node;
+        struct Node *temp2 = new struct Node;
+        delete temp2;
         temp->column = -1;
         temp->data = -1;
         temp->next = NULL;

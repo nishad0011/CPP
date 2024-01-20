@@ -35,6 +35,19 @@ void push(int element, struct stack *S)
     }
 }
 
+int pop(struct stack *S)
+{
+    if (IsEmpty(S))
+        cout << "Stack is empty" << endl;
+    else
+    {
+        int element = S->s[S->top];
+        S->top--;
+        return element;
+    }
+    return 0;
+}
+
 void display(struct stack *S)
 {
     if (IsEmpty(S))
@@ -55,6 +68,7 @@ int main()
     struct stack st;
     st.size = 5;
     st.s = new int[st.size];
+    cout << sizeof(st.s);
     st.top = -1;
 
     display(&st);
@@ -64,9 +78,12 @@ int main()
     push(30, &st);
     push(40, &st);
     push(50, &st);
-    push(60, &st);
-    push(70, &st);
 
     display(&st);
+
+    cout << pop(&st) << endl;
+
+    display(&st);
+
     return 0;
 }
