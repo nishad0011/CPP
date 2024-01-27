@@ -64,6 +64,7 @@ void inorder(struct Node *p)
         inorder(p->rchild);
     }
 }
+
 void postorder(struct Node *p)
 {
     if (p)
@@ -74,21 +75,49 @@ void postorder(struct Node *p)
     }
 }
 
+void LevelOrder(struct Node *p)
+{
+    struct Queue q;
+    create(&q, 100);
+
+    cout << p->data << " ";
+    enqueue(&q, p);
+
+    while (!isEmpty(q))
+    {
+        p = dequeue(&q);
+        if (p->lchild)
+        {
+            cout << p->lchild->data << " ";
+            enqueue(&q, p->lchild);
+        }
+        if (p->rchild)
+        {
+            cout << p->rchild->data << " ";
+            enqueue(&q, p->rchild);
+        }
+    }
+}
+
 int main()
 {
     system("cls");
     createTree();
 
-    cout << endl
-         << "pre :";
-    preorder(root);
+    /*     // Display using queue.
+        cout << endl
+             << "pre :";
+        preorder(root);
 
-    cout << endl
-         << "inorder :";
-    inorder(root);
+        cout << endl
+             << "inorder :";
+        inorder(root);
 
-    cout << endl
-         << "post :";
-    postorder(root);
+        cout << endl
+             << "post :";
+        postorder(root); */
+
+    LevelOrder(root);
+
     return 0;
 }
