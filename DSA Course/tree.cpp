@@ -99,6 +99,21 @@ void LevelOrder(struct Node *p)
     }
 }
 
+int count(struct Node *p)
+{
+    int x, y;
+    if (p != NULL)
+    {
+        x = count(p->lchild);
+        y = count(p->rchild);
+        return (x + y + 1);
+    }
+    else
+    {
+        return 0;
+    }
+}
+
 int main()
 {
     system("cls");
@@ -117,7 +132,9 @@ int main()
              << "post :";
         postorder(root); */
 
-    LevelOrder(root);
+    // LevelOrder(root);
 
+    // Counting number of Nodes
+    cout << "Node count is :" << count(root) << endl;
     return 0;
 }
