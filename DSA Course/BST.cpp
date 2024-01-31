@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
+#include "stack.h"
 
 using namespace std;
 
@@ -144,15 +145,14 @@ void Inorder(struct Node *p)
 int main()
 {
     system("cls");
-    cout << "start" << endl;
-    root = RecInsert(root, 10);
-    RecInsert(root, 5);
-    RecInsert(root, 20);
-    RecInsert(root, 8);
-    RecInsert(root, 30);
 
-    Delete(root, 30);
+    /*     root = RecInsert(root, 10);
+        RecInsert(root, 5);
+        RecInsert(root, 20);
+        RecInsert(root, 8);
+        RecInsert(root, 30);
+        Delete(root, 30);
+        Inorder(root); */
 
-    Inorder(root);
     return 0;
 }
