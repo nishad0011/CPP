@@ -29,7 +29,7 @@ int BalanceFactor(struct Node *p)
     return hl - hr;
 }
 
-// ROTATIONS
+// INSERTION ROTATIONS
 struct Node *LLRotation(struct Node *p)
 {
     struct Node *pl = p->lchild;
@@ -138,9 +138,12 @@ int main()
 {
     system("cls");
 
-    root = RecInsert(root, 50);
-    RecInsert(root, 60);
-    RecInsert(root, 55);
+    root = RecInsert(root, 10);
+    int keys[] = {20, 30, 25, 28, 27, 5};
+    for (int i = 0; i < 6; i++)
+    {
+        RecInsert(root, keys[i]);
+    }
 
     return 0;
 }
