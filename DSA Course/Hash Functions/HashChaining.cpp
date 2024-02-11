@@ -1,6 +1,7 @@
 /*
     HASH (CHAINING)
 
+    Loading factor (Lambda)-> no. of ele / size of hash table
     search time ->O(n)
  */
 
