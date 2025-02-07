@@ -1,5 +1,7 @@
 #include <iostream>
-#include <typeinfo>
+#include <typeinfo> //typeid(variable).name()
+// #include <stdlib.h>
+// #include <string>
 
 using namespace std;
 int main()

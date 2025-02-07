@@ -8,6 +8,12 @@
         "vector": "cpp",
         "initializer_list": "cpp",
         "*.tcc": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "ostream": "cpp",
+        "algorithm": "cpp",
+        "cmath": "cpp",
+        "bitset": "cpp",
+        "ios": "cpp",
+        "istream": "cpp"
     }
 }
